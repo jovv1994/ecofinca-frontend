@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { useForm, Controller } from "react-hook-form";
 import { useState } from "react";
 import User from "../api/user";

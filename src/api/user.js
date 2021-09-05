@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import api from "./index";
 
 const User = {
