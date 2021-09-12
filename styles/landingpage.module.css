@@ -1,0 +1,381 @@
+.container{
+    background: rgba(252, 245, 245, 0);
+    border: 2px solid black;
+}
+
+.space{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 5% 0px 5%;
+    position: relative;
+    margin: 7px;
+    padding: 7px;
+}
+
+.time{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 5% 0px 5%;
+    position: relative;
+    margin: 2px;
+    padding: 2px;
+}
+
+.two{
+  width: 70%;
+  height: 100%;
+  background-color:#179eb9;
+  display: block;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 7px;
+  padding: 7px;
+}
+
+
+.tree{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    width: 70%;
+    height: 100%;
+    background-color:#581908;
+    margin: 10px;
+    padding: 10px;    
+}
+
+.one{
+    width: 30%;
+    height: 100%;
+    background-color:#179eb9;
+    margin: 7px;
+    padding: 7px;
+}
+    
+
+.four{
+    width: 30%;
+    height: 100%;
+    background-color:#52b917;
+    margin: 7px;
+    padding: 7px;      
+}
+
+.five{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px; 
+    width: 70%;
+    height: 100%;
+    background-color:#49A47A;
+    margin: 10px;
+    padding: 10px;    
+}
+
+.six{
+    width: 30%;
+    height: 100%;
+    background-color:#52b917;
+    margin: 7px;
+    padding: 7px;
+    
+}
+
+
+.eight{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.seven{
+    width: 100%;
+    height: 100%;
+    background-color:#179eb9;
+    border-radius: 100px;
+    margin: 20px;
+    padding: 10px;    
+}
+
+.nane{
+    width: 100%;
+    height: 100%;
+    background-color:#52b917;
+    border-radius: 100px;
+    margin: 20px;
+    padding: 10px;
+}
+
+.ten{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 5% 0px 5%;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.once{
+    width: 100%;
+    height: 50%;
+    background-color:#b917b9; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;   
+}
+
+.twe{
+    width: 100%;
+    height: 50%;
+    background-color:#52b917;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.try{
+    width: 100%;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.fouy{
+    width: 100%;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.fivy{
+    width: 100%;
+    height: 34%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.syx{
+    margin: 1em auto; 
+    padding: 0px;
+}
+
+.sevy{
+    width: 100%;
+    height: 33%;
+    background-color:#b96d17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+} 
+
+.eighy{
+    width: 100%;
+    height: 33%;
+    background-color:#17b93a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.nany{
+    width: 100%;
+    height: 34%;
+    background-color:#b91732;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.twy{
+    width: 85%;
+    height: 100%;
+    background-color:#7017b9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 10px;
+}
+
+.tone{
+    width: 15%;
+    height: 100%;
+    background-color:#17b968;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px; 
+    padding: 0px;
+}
+
+.ten h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ten span{
+    color:#77ecb2;
+}
+
+.forty{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.forty h2{
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tweny{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tweny h3{
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hola{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.hola h6{
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.suma{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.suma h5{
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.rise{
+    width: 100%;
+    height: 50%;
+    background-color:#52b917;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.sure{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.flecha{
+    width: 15%;
+    height: 100%;
+    background-color:#17b968;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px; 
+    padding: 0px;
+}
+
+.tataa{
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tataa h5{
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+

@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import stylesLandingPage from '../styles/landingpage.module.css'
+
 
 export default function Home() {
   return (
@@ -12,58 +14,262 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+        <div className={stylesLandingPage.container}>
+          
+          <Image
+            src="/images/imageprincipal.svg" // Route of the image file
+            height={144} // Desired size with correct aspect ratio
+            width={144} // Desired size with correct aspect ratio
+            alt="imagen principal"
+          />
+        </div>
+        <div className={stylesLandingPage.ten}>
+          <h1>
+          <span >EcoFinca: </span>  La solución Tecno-ecológica para el  
+          </h1>
+          <h1>
+           manejo de tus desechos plásticos que
+          </h1>
+          <h1>
+           necesitas! 
+          </h1>
+        </div>
+//------------------------------------------------------------------------------2
+        <div className={stylesLandingPage.time}>
+            <div className={stylesLandingPage.tree}>
+              <div className={stylesLandingPage.forty}>
+                <h2>Si eres dueño de una finca, tienes</h2>
+                <h2>residuos plásticos y no sabes que</h2>
+                <h2>hacer con ellos, EcoFinca quiere</h2>
+                <h2>darte una mano </h2>
+              </div>
+            </div>
+            <div className={stylesLandingPage.one}>
+              <div className={stylesLandingPage.once}>
+                    <div className={stylesLandingPage.syx}>
+                      <Image
+                        src="/images/mano.svg" // Route of the image file
+                        height={70} // Desired size with correct aspect ratio
+                        width={100} // Desired size with correct aspect ratio
+                        alt="apreton"
+                      />
+                        
+                    </div>
+              </div>
+              <div className={stylesLandingPage.rise}>
+                <div className={stylesLandingPage.sure}>
+                    <div className={stylesLandingPage.tataa}>
+                        <h5>fincas </h5>
+                        <h5>centro acopio </h5>
+                    </div>
+                    <div className={stylesLandingPage.flecha}>
+                          <Image
+                            src="/images/undo.svg" // Route of the image file
+                            height={25} // Desired size with correct aspect ratio
+                            width={35} // Desired size with correct aspect ratio
+                            alt="recarga"
+                          />                                
+                    </div>
+                </div>
+              </div>
+           </div>
+        </div>
+//------------------------------------------------------------------------------------3
+        <div className={stylesLandingPage.time}>
+          <div className={stylesLandingPage.four}>
+                <div className={stylesLandingPage.once}>
+                  <div className={stylesLandingPage.syx}>
+                        <Image
+                          src="/images/world.svg" // Route of the image file
+                          height={100} // Desired size with correct aspect ratio
+                          width={100} // Desired size with correct aspect ratio
+                          alt="oud world"
+                        />
+                          
+                  </div>
+                </div>
+                <div className={stylesLandingPage.rise}>
+                  <div className={stylesLandingPage.sure}>
+                      <div className={stylesLandingPage.tataa}>
+                          <h5>fincas </h5>
+                          <h5>centro acopio </h5>
+                      </div>
+                      <div className={stylesLandingPage.flecha}>
+                            <Image
+                              src="/images/undo.svg" // Route of the image file
+                              height={25} // Desired size with correct aspect ratio
+                              width={35} // Desired size with correct aspect ratio
+                              alt="recarga"
+                            />                                
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div className={stylesLandingPage.five}>
+              <div className={stylesLandingPage.forty}>
+                  <h2>Sé parte del cambio y ayuda al medio </h2>
+                  <h2>ambiente, como centro de acopio,</h2>
+                  <h2>EcoFinca te ayudará a gestionar</h2>
+                  <h2>cada recolección ya que estarás en </h2>
+                  <h2>contacto directo con los dueños de </h2>
+                  <h2>fincas </h2>
+                </div>
+            </div>
+        </div>
+//----------------------------------------------------------------------------4
+        <div className={stylesLandingPage.time}>
+            <div className={stylesLandingPage.six}>
+                <div className={stylesLandingPage.rise}>
+                    <div className={stylesLandingPage.try}>
+                      <div className={stylesLandingPage.forty}>
+                        <h2>Como centro</h2>
+                        <h2>de acopio</h2>
+                      </div> 
+                    </div>
+                  </div>
+                <div className={stylesLandingPage.twe}>
+                  <div className={stylesLandingPage.syx}>
+                      <Image
+                        src="/images/allow.svg" // Route of the image file
+                        height={105} // Desired size with correct aspect ratio
+                        width={115} // Desired size with correct aspect ratio
+                        alt="oud world"
+                      />                                
+                  </div>
+              </div>
+            </div>
+            <div className={stylesLandingPage.two}>
+                <div className={stylesLandingPage.sevy}>
+                  <div className={stylesLandingPage.tone}>
+                        <Image
+                          src="/images/wifi.svg" // Route of the image file
+                          height={45} // Desired size with correct aspect ratio
+                          width={55} // Desired size with correct aspect ratio
+                          alt="wi-fi"
+                        />                                
+                    </div>
+                  <div className={stylesLandingPage.twy}>
+                    <div className={stylesLandingPage.tweny}>
+                      <h3>Conectar a los dueños de fincas con los</h3>
+                      <h3> centros de acopio</h3>
+                    </div>  
+                  </div>
+                </div>
+                <div className={stylesLandingPage.eighy}>
+                  <div className={stylesLandingPage.tone}>
+                        <Image
+                          src="/images/users.svg" // Route of the image file
+                          height={45} // Desired size with correct aspect ratio
+                          width={55} // Desired size with correct aspect ratio
+                          alt="usuario"
+                        />                                
+                    </div>
+                    <div className={stylesLandingPage.twy}>
+                      <div className={stylesLandingPage.tweny}>
+                        <h3>Crear una comunidad recicladora que</h3>
+                        <h3>comparta experiencias y consejos</h3>
+                        <h3>amigables con el medio ambiente</h3>
+                      </div>     
+                  </div>
+                </div>
+                <div className={stylesLandingPage.nany}>
+                  <div className={stylesLandingPage.tone}>
+                        <Image
+                          src="/images/undo.svg" // Route of the image file
+                          height={45} // Desired size with correct aspect ratio
+                          width={55} // Desired size with correct aspect ratio
+                          alt="recarga"
+                        />                                
+                    </div>
+                    <div className={stylesLandingPage.twy}>
+                      <div className={stylesLandingPage.tweny}>
+                        <h3>Concientizar sobre el tratamiento</h3>
+                        <h3>tradicional de los plásticos de tipo HDPE y</h3>
+                        <h3>dar un giro de 180° a esta situación</h3>
+                      </div>    
+                    </div>
+                </div>
+            </div>
+        </div>
+//--------------------------------------------------------------------------------------------------------------5
+        <div className={stylesLandingPage.eight}>
+          <div className={stylesLandingPage.seven}>
+            <div className={stylesLandingPage.try}>
+                  <div className={stylesLandingPage.forty}>
+                    <h2>Tengo una Finca</h2>
+                  </div>
+                  </div>
+                  <div className={stylesLandingPage.fouy}>
+                    <div className={stylesLandingPage.syx}>
+                        <Image
+                          src="/images/track.svg" // Route of the image file
+                          height={105} // Desired size with correct aspect ratio
+                          width={115} // Desired size with correct aspect ratio
+                          alt="oud world"
+                        />                            
+                    </div>
+                  </div>
+                  <div className={stylesLandingPage.fivy}>
+                    <div className={stylesLandingPage.sure}>
+                        <div className={stylesLandingPage.tataa}>
+                            <h5>fincas </h5>
+                            <h5>centro acopio </h5>
+                        </div>
+                        <div className={stylesLandingPage.flecha}>
+                              <Image
+                                src="/images/undo.svg" // Route of the image file
+                                height={25} // Desired size with correct aspect ratio
+                                width={35} // Desired size with correct aspect ratio
+                                alt="recarga"
+                              />                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={stylesLandingPage.nane}>
+                  <div className={stylesLandingPage.try}>
+                    <div className={stylesLandingPage.forty}>
+                      <h2>Como centro</h2>
+                      <h2>de acopio</h2>
+                    </div> 
+                  </div>
+                  <div className={stylesLandingPage.fouy}>
+                    <div className={stylesLandingPage.syx}>
+                        <Image
+                          src="/images/home.svg" // Route of the image file
+                          height={105} // Desired size with correct aspect ratio
+                          width={115} // Desired size with correct aspect ratio
+                          alt="oud world"
+                        />                           
+                    </div>
+                  </div>
+                    <div className={stylesLandingPage.fivy}>
+                      <div className={stylesLandingPage.sure}>
+                        <div className={stylesLandingPage.tataa}>
+                            <h5>fincas </h5>
+                            <h5>centro acopio </h5>
+                        </div>
+                        <div className={stylesLandingPage.flecha}>
+                              <Image
+                                src="/images/undo.svg" // Route of the image file
+                                height={25} // Desired size with correct aspect ratio
+                                width={35} // Desired size with correct aspect ratio
+                                alt="recarga"
+                              />                                
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+//----------------------------------------------------------------------------------------------------------------6
+        <div>
+              <p>
+              EcoFinca: La solución Tecno-ecológica para el manejo de tus desechos plásticos que necesitas! 
+              </p>
         </div>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+     
     </div>
   )
 }
