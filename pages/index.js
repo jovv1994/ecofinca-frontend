@@ -59,14 +59,14 @@ export default function Home() {
               <div className={stylesLandingPage.rise}>
                 <div className={stylesLandingPage.sure}>
                     <div className={stylesLandingPage.tataa}>
-                        <h5>fincas </h5>
-                        <h5>centro acopio </h5>
+                        <h5>Quiero </h5>
+                        <h5>Saber mas</h5>
                     </div>
                     <div className={stylesLandingPage.flecha}>
                           <Image
-                            src="/images/undo.svg" // Route of the image file
-                            height={25} // Desired size with correct aspect ratio
-                            width={35} // Desired size with correct aspect ratio
+                            src="/images/tractor.svg" // Route of the image file
+                            height={35} // Desired size with correct aspect ratio
+                            width={45} // Desired size with correct aspect ratio
                             alt="recarga"
                           />                                
                     </div>
@@ -88,18 +88,18 @@ export default function Home() {
                           
                   </div>
                 </div>
-                <div className={stylesLandingPage.rise}>
-                  <div className={stylesLandingPage.sure}>
-                      <div className={stylesLandingPage.tataa}>
+                <div className={stylesLandingPage.rises}>
+                  <div className={stylesLandingPage.sures}>
+                      <div className={stylesLandingPage.tataas}>
                           <h5>fincas </h5>
                           <h5>centro acopio </h5>
                       </div>
-                      <div className={stylesLandingPage.flecha}>
+                      <div className={stylesLandingPage.flechas}>
                             <Image
-                              src="/images/undo.svg" // Route of the image file
-                              height={25} // Desired size with correct aspect ratio
-                              width={35} // Desired size with correct aspect ratio
-                              alt="recarga"
+                              src="/images/seedling.svg" // Route of the image file
+                              height={45} // Desired size with correct aspect ratio
+                              width={55} // Desired size with correct aspect ratio
+                              alt="flor"
                             />                                
                       </div>
                   </div>
@@ -120,10 +120,10 @@ export default function Home() {
         <div className={stylesLandingPage.time}>
             <div className={stylesLandingPage.six}>
                 <div className={stylesLandingPage.rise}>
-                    <div className={stylesLandingPage.try}>
-                      <div className={stylesLandingPage.forty}>
-                        <h2>Como centro</h2>
-                        <h2>de acopio</h2>
+                    <div className={stylesLandingPage.trys}>
+                      <div className={stylesLandingPage.fortys}>
+                        <h2>Nuestros</h2>
+                        <h2>Objetivos</h2>
                       </div> 
                     </div>
                   </div>
@@ -148,7 +148,7 @@ export default function Home() {
                           alt="wi-fi"
                         />                                
                     </div>
-                  <div className={stylesLandingPage.twy}>
+                  <div className={stylesLandingPage.twys}>
                     <div className={stylesLandingPage.tweny}>
                       <h3>Conectar a los dueños de fincas con los</h3>
                       <h3> centros de acopio</h3>
@@ -156,7 +156,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className={stylesLandingPage.eighy}>
-                  <div className={stylesLandingPage.tone}>
+                  <div className={stylesLandingPage.tones}>
                         <Image
                           src="/images/users.svg" // Route of the image file
                           height={45} // Desired size with correct aspect ratio
@@ -165,7 +165,7 @@ export default function Home() {
                         />                                
                     </div>
                     <div className={stylesLandingPage.twy}>
-                      <div className={stylesLandingPage.tweny}>
+                      <div className={stylesLandingPage.twenys}>
                         <h3>Crear una comunidad recicladora que</h3>
                         <h3>comparta experiencias y consejos</h3>
                         <h3>amigables con el medio ambiente</h3>
@@ -173,7 +173,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className={stylesLandingPage.nany}>
-                  <div className={stylesLandingPage.tone}>
+                  <div className={stylesLandingPage.toner}>
                         <Image
                           src="/images/undo.svg" // Route of the image file
                           height={45} // Desired size with correct aspect ratio
@@ -182,7 +182,7 @@ export default function Home() {
                         />                                
                     </div>
                     <div className={stylesLandingPage.twy}>
-                      <div className={stylesLandingPage.tweny}>
+                      <div className={stylesLandingPage.twenr}>
                         <h3>Concientizar sobre el tratamiento</h3>
                         <h3>tradicional de los plásticos de tipo HDPE y</h3>
                         <h3>dar un giro de 180° a esta situación</h3>
@@ -212,15 +212,15 @@ export default function Home() {
                   <div className={stylesLandingPage.fivy}>
                     <div className={stylesLandingPage.sure}>
                         <div className={stylesLandingPage.tataa}>
-                            <h5>fincas </h5>
-                            <h5>centro acopio </h5>
+                            <h5>Quiero ser parte </h5>
+                            <h5>de EcoFinca </h5>
                         </div>
                         <div className={stylesLandingPage.flecha}>
                               <Image
-                                src="/images/undo.svg" // Route of the image file
+                                src="/images/users-2.svg" // Route of the image file
                                 height={25} // Desired size with correct aspect ratio
                                 width={35} // Desired size with correct aspect ratio
-                                alt="recarga"
+                                alt="user-finca"
                               />                                
                         </div>
                     </div>
@@ -244,17 +244,17 @@ export default function Home() {
                     </div>
                   </div>
                     <div className={stylesLandingPage.fivy}>
-                      <div className={stylesLandingPage.sure}>
-                        <div className={stylesLandingPage.tataa}>
-                            <h5>fincas </h5>
-                            <h5>centro acopio </h5>
+                      <div className={stylesLandingPage.sures}>
+                        <div className={stylesLandingPage.tataas}>
+                            <h5>Quiero ser parte</h5>
+                            <h5>de EcoFinca </h5>
                         </div>
-                        <div className={stylesLandingPage.flecha}>
+                        <div className={stylesLandingPage.flechas}>
                               <Image
-                                src="/images/undo.svg" // Route of the image file
+                                src="/images/users-3.svg" // Route of the image file
                                 height={25} // Desired size with correct aspect ratio
                                 width={35} // Desired size with correct aspect ratio
-                                alt="recarga"
+                                alt="user-acopio"
                               />                                
                         </div>
                     </div>
@@ -262,10 +262,10 @@ export default function Home() {
             </div>
         </div>
 //----------------------------------------------------------------------------------------------------------------6
-        <div>
-              <p>
-              EcoFinca: La solución Tecno-ecológica para el manejo de tus desechos plásticos que necesitas! 
-              </p>
+        <div className={stylesLandingPage.ten} >
+              <h1>
+              Ya tienes una cuenta?,<span>  Inicia sesión</span>
+              </h1>
         </div>
       </main>
 

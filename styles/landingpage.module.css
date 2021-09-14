@@ -27,7 +27,6 @@
 .two{
   width: 70%;
   height: 100%;
-  background-color:#179eb9;
   display: block;
   align-items: center;
   justify-content: space-between;
@@ -53,7 +52,6 @@
 .one{
     width: 30%;
     height: 100%;
-    background-color:#179eb9;
     margin: 7px;
     padding: 7px;
 }
@@ -62,7 +60,6 @@
 .four{
     width: 30%;
     height: 100%;
-    background-color:#52b917;
     margin: 7px;
     padding: 7px;      
 }
@@ -83,7 +80,6 @@
 .six{
     width: 30%;
     height: 100%;
-    background-color:#52b917;
     margin: 7px;
     padding: 7px;
     
@@ -103,7 +99,6 @@
 .seven{
     width: 100%;
     height: 100%;
-    background-color:#179eb9;
     border-radius: 100px;
     margin: 20px;
     padding: 10px;    
@@ -112,7 +107,6 @@
 .nane{
     width: 100%;
     height: 100%;
-    background-color:#52b917;
     border-radius: 100px;
     margin: 20px;
     padding: 10px;
@@ -131,7 +125,6 @@
 .once{
     width: 100%;
     height: 50%;
-    background-color:#b917b9; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,7 +136,6 @@
 .twe{
     width: 100%;
     height: 50%;
-    background-color:#52b917;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -153,6 +145,18 @@
 }
 
 .try{
+    width: 100%;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.trys{
     width: 100%;
     height: 33%;
     display: flex;
@@ -180,7 +184,19 @@
     height: 34%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
+    position: relative;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.fivyr{
+    width: 100%;
+    height: 34%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     border-radius: 10px;
     margin: 0px;
@@ -195,7 +211,6 @@
 .sevy{
     width: 100%;
     height: 33%;
-    background-color:#b96d17;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -207,7 +222,6 @@
 .eighy{
     width: 100%;
     height: 33%;
-    background-color:#17b93a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -219,7 +233,6 @@
 .nany{
     width: 100%;
     height: 34%;
-    background-color:#b91732;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -231,7 +244,17 @@
 .twy{
     width: 85%;
     height: 100%;
-    background-color:#7017b9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 10px;
+}
+
+.twys{
+    width: 85%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -243,7 +266,28 @@
 .tone{
     width: 15%;
     height: 100%;
-    background-color:#17b968;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px; 
+    padding: 0px;
+}
+
+.tones{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px; 
+    padding: 0px;
+}
+
+.toner{
+    width: 15%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -274,8 +318,24 @@
     padding: 0px;
 }
 
+.fortys{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
 .forty h2{
     text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.fortys h2{
+    text-align:center;
+    color: #2D6A4F;
     margin: 0px;
     padding: 0px;
 }
@@ -289,8 +349,41 @@
     padding: 0px;
 }
 
+.twenys{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.twenr{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
 .tweny h3{
     text-align:center;
+    color: #FFA400;
+    margin: 0px;
+    padding: 0px;
+}
+
+.twenys h3{
+    text-align:center;
+    color: #166088;
+    margin: 0px;
+    padding: 0px;
+}
+
+.twenr h3{
+    text-align:center;
+    color: #8B2635;
     margin: 0px;
     padding: 0px;
 }
@@ -329,16 +422,16 @@
 .rise{
     width: 100%;
     height: 50%;
-    background-color:#52b917;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     position: relative;
-    margin: 0px;
+    margin: 10px;
     padding: 0px;
 }
 
-.sure{
+
+.rises{
     width: 100%;
     height: 50%;
     display: flex;
@@ -349,11 +442,75 @@
     padding: 0px;
 }
 
+.sure{
+    width: 83%;
+    height: 50%;
+    background-color:#A3333D;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    border-radius: 35px;
+    margin: 0px;
+    padding: 7px;
+}
+
+.sures{
+    width: 83%;
+    height: 50%;
+    background-color:#372248;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    border-radius: 35px;
+    margin: 0px;
+    padding: 7px;
+}
+
+.surer{
+    width: 83%;
+    height: 50%;
+    background-color:#372248;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    border-radius: 35px;
+    margin: 0px;
+    padding: 7px;
+}
+
+
 
 .flecha{
     width: 15%;
     height: 100%;
-    background-color:#17b968;
+    background-color:#A3333D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px; 
+    padding: 0px;
+}
+
+.flechas{
+    width: 15%;
+    height: 100%;
+    background-color:#372248;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 1px; 
+    padding: 0px;
+}
+
+.flechar{
+    width: 15%;
+    height: 100%;
+    background-color:#372248;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -369,12 +526,51 @@
     justify-content: center;
     position: relative;
     text-align:center;
+    margin: 1px;
+    padding: 0px;
+}
+
+.tataas{
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align:center;
     margin: 0px;
     padding: 0px;
 }
 
+.tataar{
+    height: 100%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+
 .tataa h5{
     text-align:center;
+    color:#fff;
+    margin: 0px;
+    padding: 0px;
+}
+
+.tataas h5{
+    text-align:center;
+    color:#fff;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.tataar h5{
+    text-align:center;
+    color:#fff;
     margin: 0px;
     padding: 0px;
 }
