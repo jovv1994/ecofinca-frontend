@@ -25,7 +25,7 @@ export default function Home() {
         </div>
         <div className={stylesLandingPage.ten}>
           <h1>
-          <span >EcoFinca: </span>  La solución Tecno-ecológica para el  
+          <span >EcoFinca:  ' </span>    La solución Tecno-ecológica para el  
           </h1>
           <h1>
            manejo de tus desechos plásticos que
@@ -262,10 +262,10 @@ export default function Home() {
             </div>
         </div>
 //----------------------------------------------------------------------------------------------------------------6
-        <div className={stylesLandingPage.ten} >
-              <h1>
-              Ya tienes una cuenta?,<span>  Inicia sesión</span>
-              </h1>
+        <div className={stylesLandingPage.tens} >
+              <h3>
+              Ya tienes una cuenta?,  '<span>  Inicia sesión</span>
+              </h3>
         </div>
       </main>
 

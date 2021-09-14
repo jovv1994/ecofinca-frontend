@@ -41,7 +41,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    border-radius: 10px;
+    border-radius: 37px;
     width: 70%;
     height: 100%;
     background-color:#581908;
@@ -69,7 +69,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    border-radius: 10px; 
+    border-radius: 37px; 
     width: 70%;
     height: 100%;
     background-color:#49A47A;
@@ -122,6 +122,15 @@
     padding: 0px;
 }
 
+.ten{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 5% 0px 5%;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
 .once{
     width: 100%;
     height: 50%;
@@ -301,11 +310,25 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    margin: 5px;
+    padding: 5px;
+}
+
+.ten span{
+    color:#77ecb2;
+}
+
+
+.tens h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     margin: 0px;
     padding: 0px;
 }
 
-.ten span{
+.tens span{
     color:#77ecb2;
 }
 
