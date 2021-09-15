@@ -2,6 +2,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import stylesLandingPage from '../styles/landingpage.module.css'
+import Link from 'next/link'
+
 
 
 export default function Home() {
@@ -264,7 +266,9 @@ export default function Home() {
 //----------------------------------------------------------------------------------------------------------------6
         <div className={stylesLandingPage.tens} >
               <h3>
-              Ya tienes una cuenta?,  '<span>  Inicia sesión</span>
+              Ya tienes una cuenta?, <Link href="/">
+          <a>Home</a>
+        </Link>
               </h3>
         </div>
       </main>
