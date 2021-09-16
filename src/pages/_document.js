@@ -1,16 +1,21 @@
+
+/* eslint-disable prettier/prettier */
 import React from "react";
-import Document, { Head, Html, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core/styles";
+import theme from "@/styles/theme";
 import { ServerStyleSheet } from "styled-components";
-// import theme from '../src/theme';
+
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html lang="es">
+
+      <Html lang="en">
         <Head>
-          {/*/!* PWA primary color *!/*/}
-          {/*<meta name="theme-color" content={theme.palette.primary.main} />*/}
+          {/* PWA primary color */}
+          <meta name="theme-color" content={theme.palette.primary.main} />
+
           <link
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -24,6 +29,10 @@ export default class MyDocument extends Document {
     );
   }
 }
+
+
+// This is a fix for Material UI SSR styles
+
 
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).
