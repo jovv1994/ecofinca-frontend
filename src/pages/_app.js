@@ -1,3 +1,4 @@
+
 import React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
@@ -28,12 +29,14 @@ export default function MyApp(props) {
         />
       </Head>
 
+
       <ThemeProvider theme={theme}>
         <StylesProvider injectFirst>
           <StyledProvider theme={theme}>
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <Component {...pageProps} />
+
           </StyledProvider>
         </StylesProvider>
       </ThemeProvider>
@@ -41,7 +44,9 @@ export default function MyApp(props) {
   );
 }
 
+
 MyApp.propTypes = {
   Component: PropTypes.elementType.isRequired,
   pageProps: PropTypes.object.isRequired,
 };
+
