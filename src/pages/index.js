@@ -4,8 +4,6 @@ import styles from '../styles/Home.module.css'
 import stylesLandingPage from '../styles/landingpage.module.css'
 import Link from 'next/link'
 
-
-
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -17,7 +15,6 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={stylesLandingPage.container}>
-          
           <Image
             src="/images/imageprincipal.svg" // Route of the image file
             height={144} // Desired size with correct aspect ratio
