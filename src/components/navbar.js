@@ -10,32 +10,33 @@ import Link from "next/link";
 
 export default function ButtonAppBar() {
   return (
-    <div>
-      <StyledAppBar position="static">
-        <Toolbar>
-          <StyledTypography>EcoFinca</StyledTypography>
-          <Image
-            src="/images/logo.svg" // Route of the image file
-            height={25} // Desired size with correct aspect ratio
-            width={25} // Desired size with correct aspect ratio
-            alt="Logo"
-          />
-          <Link href="/registro/finca">
-            <StyledButton>Registrarme como dueño de finca</StyledButton>
-          </Link>
+    <StyledAppBar position="static">
+      <Toolbar>
+        <StyledTypography>EcoFinca</StyledTypography>
+        <Image
+          src="/images/logo.svg" // Route of the image file
+          height={25} // Desired size with correct aspect ratio
+          width={25} // Desired size with correct aspect ratio
+          alt="Logo"
+        />
+        <Link href="/registro/finca">
+          <StyledButton>Registrarme como dueño de finca</StyledButton>
+        </Link>
+        <Link href="/registro/acopio">
           <StyledButton>Registrarme como centro de acopio</StyledButton>
+        </Link>
+        <Link href="/login">
           <StyledButton>Iniciar Sesión</StyledButton>
-        </Toolbar>
-      </StyledAppBar>
-    </div>
+        </Link>
+      </Toolbar>
+    </StyledAppBar>
   );
 }
 
-/*const Container = styled.div`
-  background: #95d5b2;
-`;*/
 const StyledAppBar = styled(AppBar)`
-  background: #000;
+  background: #52b788;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const StyledButton = styled(Button)`
@@ -45,7 +46,7 @@ const StyledButton = styled(Button)`
   text-decoration: none;
   color: #1b4332;
   font-size: 8px;
-  margin: 20px;
+  margin: 10px;
 `;
 
 const StyledTypography = styled(Typography)`
