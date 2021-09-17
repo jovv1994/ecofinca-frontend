@@ -3,28 +3,39 @@ import { useState } from "react";
 import User from "@/api/user";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Button, Link as MuiLink, TextField } from "@material-ui/core";
+import {
+  Button,
+  Link as MuiLink,
+  TextField,
+  MenuItem,
+} from "@material-ui/core";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import Layout from "@/components/layout";
 
 /*-------------------------Validacion de datos--------------------------*/
 const schema = yup.object().shape({
-  name: yup.string().required("Este campo es obligatorio"),
+  name: yup.string().required("El nombre es obligatorio"),
+  lastname: yup.string().required("El apellido es obligatorio"),
   email: yup
     .string()
     .email("Ingrese un correo válido")
-    .required("Este campo obligatorio"),
+    .required("El correo es obligatorio"),
   password: yup
     .string()
     .min(8, "Ingrese al menos 8 caracteres")
-    .required("Este campo obligatorio"),
+    .required("Ingrese una contraseña"),
   password_confirmation: yup
     .string()
     .oneOf([yup.ref("password"), null], "Las claves no coinciden")
-    .required("Este campo obligatorio"),
-  organization: yup.string().required("Este campo obligatorio"),
-  description: yup.string().max(200).required("Este campo obligatorio"),
+    .required("Confirme su contraseña"),
+  address: yup.string().required("La dirección es requerida"),
+  organization: yup.string().required("Ingrese el nombre de su finca"),
+  description: yup
+    .string()
+    .max(200)
+    .required("Una breve descripción de sus productos"),
 });
 /*-----------------------------------------------------------------------*/
 
@@ -88,137 +99,205 @@ const RegisterPage = () => {
 
   /*-----------------Renderizado del componente----------------------*/
   return (
-    <Container>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <Controller
-            name="name"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <StyledTextField
-                {...field}
-                label="Nombre"
-                variant="outlined"
-                size="small"
-              />
-            )}
-          />
-          <p>{errors.name?.message}</p>
-        </div>
-        <div>
-          <Controller
-            name="email"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <StyledTextField
-                {...field}
-                type="email"
-                label="Correo electrónico"
-                variant="outlined"
-                size="small"
-              />
-            )}
-          />
-          <p>{errors.email?.message}</p>
-        </div>
-        <div>
-          <Controller
-            name="password"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <StyledTextField
-                {...field}
-                type="password"
-                label="Contraseña"
-                variant="outlined"
-                size="small"
-              />
-            )}
-          />
-          <p>{errors.password?.message}</p>
-        </div>
-        <div>
-          <Controller
-            name="password_confirmation"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <StyledTextField
-                {...field}
-                type="password"
-                label="Confirma tu contraseña"
-                variant="outlined"
-                size="small"
-              />
-            )}
-          />
-          <p>{errors.password_confirmation?.message}</p>
-        </div>
-        <div>
-          <Controller
-            name="organization"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <StyledTextField
-                {...field}
-                label="Nombre de la finca"
-                variant="outlined"
-                size="small"
-              />
-            )}
-          />
-          <p>{errors.editorial?.message}</p>
-        </div>
-        <div>
-          <Controller
-            name="description"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <StyledTextField
-                {...field}
-                multiline
-                maxRows={6}
-                label="Descripción corta de su finca"
-                variant="outlined"
-                size="small"
-              />
-            )}
-          />
-          <p>{errors.short_bio?.message}</p>
-        </div>
-
-        <p>{result}</p>
-        {userInfo && (
+    <Layout>
+      <Container>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <div>Nombre: {userInfo.name}</div>
-            <div>Token: {userInfo.token}</div>
+            <Controller
+              name="name"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  label="Nombre"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.name?.message}</p>
           </div>
-        )}
+          <div>
+            <Controller
+              name="lastname"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  label="Apellido"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.lastname?.message}</p>
+          </div>
+          <div>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  type="email"
+                  label="Correo electrónico"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.email?.message}</p>
+          </div>
+          <div>
+            <Controller
+              name="password"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  type="password"
+                  label="Contraseña"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.password?.message}</p>
+          </div>
+          <div>
+            <Controller
+              name="password_confirmation"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  type="password"
+                  label="Confirma tu contraseña"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.password_confirmation?.message}</p>
+          </div>
+          <div>
+            <Controller
+              name="address"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  label="Ingresa tu dirección"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.address?.message}</p>
+          </div>
+          <div>
+            <Controller
+              name="organization"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  label="Nombre de la finca"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.editorial?.message}</p>
+          </div>
+          <div>
+            <Controller
+              name="description"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <StyledTextField
+                  {...field}
+                  multiline
+                  maxRows={6}
+                  label="Descripción corta de su finca"
+                  variant="outlined"
+                  size="small"
+                />
+              )}
+            />
+            <p>{errors.short_bio?.message}</p>
+          </div>
 
-        {errorsList.length > 0 && (
-          <ul>
-            {errorsList.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
-          </ul>
-        )}
-        <StyledButton type="submit">Registrarme</StyledButton>
+          <div>
+            <Controller
+              name="parroquia_id"
+              control={control}
+              defaultValue=""
+              render={({ field: { ref, ...rest } }) => (
+                <StyledTextField
+                  {...rest}
+                  select
+                  label="Ingrese la parroquía donde se ubica la finca"
+                  inputRef={ref}
+                  error={!!errors.gender}
+                  helperText={errors.gender?.message}
+                >
+                  {[
+                    {
+                      label: "Quito",
+                      value: "male",
+                    },
+                    {
+                      label: "El Oro",
+                      value: "female",
+                    },
+                  ].map((option) => (
+                    <MenuItem key={option.value} value={option.value}>
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </StyledTextField>
+              )}
+            />
+            <p>{errors.short_bio?.message}</p>
+          </div>
 
-        <div>
-          <p>
-            ¿Ya tienes una cuenta?{" "}
-            <Link href="/inicio-sesion" passHref>
-              <MuiLink>Iniciar sesión</MuiLink>
-            </Link>
-          </p>
-        </div>
-      </form>
-    </Container>
+          <p>{result}</p>
+          {userInfo && (
+            <div>
+              <div>Nombre: {userInfo.name}</div>
+              <div>Token: {userInfo.token}</div>
+            </div>
+          )}
+
+          {errorsList.length > 0 && (
+            <ul>
+              {errorsList.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+          )}
+          <StyledButton type="submit">Registrarme</StyledButton>
+
+          <div>
+            <p>
+              ¿Ya tienes una cuenta?{" "}
+              <Link href="/inicio-sesion" passHref>
+                <MuiLink>Iniciar sesión</MuiLink>
+              </Link>
+            </p>
+          </div>
+        </form>
+      </Container>
+    </Layout>
   );
 };
 export default RegisterPage;
@@ -228,6 +307,7 @@ export default RegisterPage;
 const Container = styled.div`
   background: #74c69d;
   padding: 15px;
+  width: 50%;
 `;
 
 const StyledButton = styled(Button)`
@@ -242,4 +322,5 @@ const StyledTextField = styled(TextField)`
   background: #ffffff;
   border-radius: 10px;
   color: #000000;
+  width: 50%;
 `;
