@@ -32,6 +32,7 @@ export default function withAuthRedirect({
 
     const isAuthenticated = !!user;
     const shouldRedirect = expectedAuth !== isAuthenticated;
+
     if (shouldRedirect) {
       router.push(location || Routes.LOGIN);
       return null;
