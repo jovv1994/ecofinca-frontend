@@ -20,7 +20,7 @@ export default function Homes() {
       <Layout>
         {role === "finca" ? (
           <Container>
-            <FarmHistory></FarmHistory>
+            <FarmHistory />
             <Info>
               {" "}
               <StyledCard sx={{ maxWidth: 345 }}>
@@ -90,7 +90,7 @@ export default function Homes() {
           </Container>
         ) : (
           <Container>
-            <CenterHistory></CenterHistory>
+            <CenterHistory />
             <Info>
               {" "}
               <StyledCard sx={{ maxWidth: 345 }}>
