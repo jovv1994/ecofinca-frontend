@@ -8,8 +8,6 @@ import AuthMenu from "@/components/AuthMenu";
 import Link from "next/link";
 
 export default function ButtonAppBar() {
-  const auth = false;
-
   return (
     <StyledAppBar position="static">
       <StyledToolbar>

@@ -256,7 +256,9 @@ export default function DeliveryPage() {
 
           <Grid>
             <StyledButton type="submit">Publicar Entrega</StyledButton>
-            <StyledButton type="submit">Cancelar</StyledButton>
+            <Link href="/home/finca">
+              <StyledButton>Cancelar</StyledButton>
+            </Link>
           </Grid>
         </form>
       </Container>

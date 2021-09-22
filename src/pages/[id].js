@@ -12,6 +12,7 @@ import styled from "styled-components";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 
+/*----------------------Validacion de datos---------------------------*/
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -19,6 +20,7 @@ const schema = yup.object().shape({
     .required("El correo es obligatorio"),
   password: yup.string().required("Ingrese su contraseña"),
 });
+/*--------------------------------------------------------------------*/
 
 const LoginPage = () => {
   const {
@@ -29,27 +31,31 @@ const LoginPage = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
   const [result, setResult] = useState("");
   const [errorsList, setErrorsList] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
   const { login } = useAuth();
   const router = useRouter();
 
-  // if (user) {
-  //   router.push(Routes.HOME);
-  // }
   const onFinishLog = async (formData) => {
     try {
       const userData = {
         ...formData,
       };
+
       const response = await login(userData);
       console.log("response", response);
       setUserInfo(response.data);
 
-      setResult("User logged in");
+      const role = response.data.userResource.role;
+
       reset();
-      router.push(Routes.HOME);
+      {
+        role === "ROLE_FARM"
+          ? router.push(Routes.HOME_FARM)
+          : router.push(Routes.HOME_ROLE_COLLECTION_CENTER);
+      }
     } catch (e) {
       console.log("e", e.response);
       const { response } = e;
@@ -119,7 +125,7 @@ const LoginPage = () => {
 
           <Grid>
             <StyledButton type="submit">Iniciar sesión</StyledButton>
-            <p>{result}</p>
+            {/* <p>{result}</p>
             {userInfo && <div></div>}
             {errorsList.length > 0 && (
               <ul>
@@ -127,7 +133,7 @@ const LoginPage = () => {
                   <li key={error}>{error}</li>
                 ))}
               </ul>
-            )}
+            )} */}
 
             <Link href="/" passHref>
               <Hiper style={{ textAlign: "center" }}>
@@ -161,8 +167,8 @@ const Container = styled.div`
   background: #74c69d;
   padding-right: 15px;
   padding-left: 15px;
-  padding-top: 70px;
-  padding-bottom: 70px;
+  padding-top: 84.5px;
+  padding-bottom: 84.5px;
   width: 50%;
   margin: auto;
 `;
@@ -193,7 +199,7 @@ const StyledTextField = styled(TextField)`
 
 const Grid = styled.div`
   display: grid;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
   justify-content: center;
 `;
 

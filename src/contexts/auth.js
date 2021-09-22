@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import cookie from "js-cookie";
 import translateMessage from "../constants/messages";
-import User from "../api/user";
+import User from "@/api/user";
 import PropTypes from "prop-types";
 
 export const AuthContext = createContext(null);

@@ -6,8 +6,8 @@ const publicRoutes = {
 };
 
 const privateRoutes = {
-  HOME_FARM: "/home/finca",
   HOME_ROLE_COLLECTION_CENTER: "/home/acopio",
+  HOME_FARM: "/home/finca",
 };
 
 const Routes = {

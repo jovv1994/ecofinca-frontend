@@ -129,16 +129,17 @@ const rows = [
 export default function FarmHistory() {
   return (
     <TableContainer component={Paper}>
-      <Typography>Historial de entregas</Typography>
+      <Typography variant="h3" align="center">
+        Historial de entregas
+      </Typography>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="center">Descripción</TableCell>
+            <TableCell align="center">Cantidad</TableCell>
+            <TableCell align="center">Acopio</TableCell>
+            <TableCell align="center">Estado</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
