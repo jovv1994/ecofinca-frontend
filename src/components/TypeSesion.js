@@ -24,16 +24,20 @@ export default function TypeSesion() {
     setAnchorEl(null);
   };
 
-  if (role === "finca") {
+  const sesionRole = user.role;
+
+  if (sesionRole === "ROLE_FARM") {
     return (
-      <div>
-        <Typography>Finca </Typography>
-        {user.organization}
-        <Link href="/entrega">
+      <Container>
+        <StyledTypography variant="h6">Finca </StyledTypography>
+        <StyledTypography variant="h6">
+          {user.organization_type}
+        </StyledTypography>
+        <Link href="/entregas/entrega">
           <StyledButton>Realizar una entrega</StyledButton>
         </Link>
-        <Typography>Bienvenido </Typography>
-        {user.name}
+        <StyledTypography variant="h6">Bienvenido </StyledTypography>
+        <StyledTypography variant="h6">{user.name}</StyledTypography>
         <IconButton
           size="large"
           aria-label="account of current user"
@@ -63,16 +67,16 @@ export default function TypeSesion() {
           <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
         </Menu>
         <Logout />
-      </div>
+      </Container>
     );
   }
 
   return (
-    <div>
-      <Typography>Centro de acopio </Typography>
-      {user.organization}
-      <Typography>Bienvenido </Typography>
-      {user.name}
+    <Container>
+      <StyledTypography variant="h6">Centro de acopio </StyledTypography>
+      <StyledTypography variant="h6">{user.organization_type}</StyledTypography>
+      <StyledTypography variant="h6">Bienvenido </StyledTypography>
+      <StyledTypography variant="h6">{user.name}</StyledTypography>
       <IconButton
         size="large"
         aria-label="account of current user"
@@ -102,9 +106,17 @@ export default function TypeSesion() {
         <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
       </Menu>
       <Logout />
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  justify-content: space-evenly;
+  align-content: center;
+  width: 100%;
+`;
 
 const StyledButton = styled(Button)`
   background: #ffffff;
@@ -113,5 +125,9 @@ const StyledButton = styled(Button)`
   text-decoration: none;
   color: #1b4332;
   font-size: 8px;
+  margin: 10px;
+`;
+
+const StyledTypography = styled(Typography)`
   margin: 10px;
 `;

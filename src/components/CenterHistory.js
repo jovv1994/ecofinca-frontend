@@ -129,16 +129,18 @@ const rows = [
 export default function CenterHistory() {
   return (
     <TableContainer component={Paper}>
-      <Typography>Historial de recolecciones</Typography>
+      <Typography variant="h3" align="center">
+        Historial de recolecciones
+      </Typography>
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-            <TableCell align="right">Protein&nbsp;(g)</TableCell>
+            <TableCell align="center">Dessert (100g serving)</TableCell>
+            <TableCell align="center">Calories</TableCell>
+            <TableCell align="center">Fat&nbsp;(g)</TableCell>
+            <TableCell align="center">Carbs&nbsp;(g)</TableCell>
+            <TableCell align="center">Protein&nbsp;(g)</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
