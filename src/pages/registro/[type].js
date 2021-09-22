@@ -1,5 +1,5 @@
 import { useForm, Controller } from "react-hook-form";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import {
@@ -16,6 +16,10 @@ import { useAuth } from "@/contexts/auth";
 import withoutAuth from "@/hocs/withoutAuth";
 import Routes from "@/constants/Routes";
 import Image from "next/image";
+import Provincia from "@/api/provincias";
+import { getDialogActionsUtilityClass } from "@mui/material";
+import Canton from "@/api/cantones";
+import api from "@/api/index";
 
 /*-------------------------Validacion de datos--------------------------*/
 const schema = yup.object().shape({
@@ -57,6 +61,54 @@ const RegisterPage = () => {
     resolver: yupResolver(schema),
   });
 
+  const [provincias, setProvincias] = useState([]);
+  const [provinciaId, setProvinciaId] = useState("");
+  const [cantones, setCantones] = useState([]);
+  const [cantonId, setCantonId] = useState("");
+  const [parroquias, setParroquias] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Provincia.all();
+        console.log("response", response.data);
+        setProvincias(response.data);
+      } catch (e) {
+        console.log("e", e);
+      }
+    };
+
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Provincia.cantones(provinciaId);
+        console.log("CANTONES DE PROVINCIA " + provinciaId, response.data);
+        setCantones(response.data);
+      } catch (e) {
+        console.log("E", e);
+      }
+    };
+
+    getData();
+  }, [provinciaId]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Canton.parroquias(cantonId);
+        console.log("PARROQUIAS DE CANTON" + cantonId, response.data);
+        setParroquias(response.data);
+      } catch (e) {
+        console.log("e", e);
+      }
+    };
+
+    getData();
+  }, [cantonId]);
+
   const [result, setResult] = useState("");
   const [errorsList, setErrorsList] = useState([]);
   const [userInfo, setUserInfo] = useState(null);
@@ -65,7 +117,7 @@ const RegisterPage = () => {
   const onSubmit = async (formData) => {
     setUserInfo(null);
     setResult("Enviando los datos...");
-
+    console.log("FORM DATA", formData);
     try {
       const userData = {
         ...formData,
@@ -73,15 +125,16 @@ const RegisterPage = () => {
       };
 
       const response = await register(userData);
-      console.log("response", response);
+      console.log("response despues de registro", response.data);
       setUserInfo(response.data);
 
       setResult("Usuario registrado correctamente");
       reset();
+      //PRIMER PUNTO A REVISAR, VALIDACION PUEDE DARSE EN HOCS
       {
         type === "finca"
-          ? router.push(Routes.HOME_FARM)
-          : router.push(Routes.HOME_ROLE_COLLECTION_CENTER);
+          ? await router.push(Routes.HOME_FARM)
+          : await router.push(Routes.HOME_ROLE_COLLECTION_CENTER);
       }
     } catch (e) {
       console.log("e", e.response);
@@ -104,7 +157,7 @@ const RegisterPage = () => {
       }
     }
   };
-
+//SEGUNDO => CAMBIAR EL FORMULARIO A UNO MAS GENERICO
   /*-----------------Renderizado del componente----------------------*/
   return (
     <Layout>
@@ -278,31 +331,24 @@ const RegisterPage = () => {
                     <StyledTextField
                       {...rest}
                       select
-                      label="Ingrese la provincia donde se ubica la finca"
+                      label="Seleccione su Provincia"
                       inputRef={ref}
-                      error={!!errors.gender}
-                      helperText={errors.gender?.message}
                     >
-                      {[
-                        {
-                          label: "Pichincha",
-                          value: 1,
-                        },
-                        {
-                          label: "Guayas",
-                          value: 2,
-                        },
-                      ].map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
+                      {provincias.length > 0 &&
+                        provincias.map((option) => (
+                          <MenuItem
+                            key={option.id}
+                            value={option.id}
+                            onClick={() => setProvinciaId(option.id)}
+                          >
+                            {option.name}
+                          </MenuItem>
+                        ))}
                     </StyledTextField>
                   )}
                 />
-                <p>{errors.short_bio?.message}</p>
+                <p>{errors.description?.message}</p>
               </div>
-
               <div>
                 <Controller
                   name="canton_id"
@@ -312,25 +358,20 @@ const RegisterPage = () => {
                     <StyledTextField
                       {...rest}
                       select
-                      label="Ingrese el cantón donde se ubica la finca"
+                      label="Seleccione su Cantón"
                       inputRef={ref}
-                      error={!!errors.gender}
-                      helperText={errors.gender?.message}
                     >
-                      {[
-                        {
-                          label: "Quito",
-                          value: 1,
-                        },
-                        {
-                          label: "El Oro",
-                          value: 2,
-                        },
-                      ].map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
+                      {cantones.length > 0 &&
+                        cantones.map((option) => (
+                          <MenuItem
+                            key={option.id}
+                            value={option.id}
+                            // onClick={() => handleShowProvinciaId(option.id)}
+                            onClick={() => setCantonId(option.id)}
+                          >
+                            {option.name}
+                          </MenuItem>
+                        ))}
                     </StyledTextField>
                   )}
                 />
@@ -346,25 +387,20 @@ const RegisterPage = () => {
                     <StyledTextField
                       {...rest}
                       select
-                      label="Ingrese la parroquía donde se ubica la finca"
+                      label="Seleccione su Parroquia"
                       inputRef={ref}
-                      error={!!errors.gender}
-                      helperText={errors.gender?.message}
                     >
-                      {[
-                        {
-                          label: "Quito",
-                          value: 1,
-                        },
-                        {
-                          label: "El Oro",
-                          value: 2,
-                        },
-                      ].map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
+                      {parroquias.length > 0 &&
+                        parroquias.map((option) => (
+                          <MenuItem
+                            key={option.id}
+                            value={option.id}
+                            // onClick={() => handleShowProvinciaId(option.id)}
+                            //onClick={() => setCantonId(option.id)}
+                          >
+                            {option.name}
+                          </MenuItem>
+                        ))}
                     </StyledTextField>
                   )}
                 />
