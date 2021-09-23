@@ -1,45 +1,44 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import styled from "styled-components";
 import { Facebook, Instagram, Twitter } from "@material-ui/icons";
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-    maxWidth: 500,
-  },
-});
-
 export default function IconTabs() {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
     <StyledPaper square>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        variant="fullWidth"
-        indicatorColor="primary"
-        textColor="primary"
-        aria-label="icon tabs example"
+      <a
+        href="https://www.facebook.com/EcoFinca-101169402330197"
+        target="_blank"
       >
-        <Tab icon={<Facebook />} aria-label="facebook" />
-        <Tab icon={<Twitter />} aria-label="twitter" />
-        <Tab icon={<Instagram />} aria-label="instagram" />
-      </Tabs>
+        <StyledFacebook />
+      </a>
+      <a href="https://twitter.com/FincaEco" target="_blank">
+        <StyledTwitter />
+      </a>
+      <a href="https://www.instagram.com/ecofinca2021/" target="_blank">
+        <StyledInstagram />
+      </a>
     </StyledPaper>
   );
 }
 
 const StyledPaper = styled(Paper)`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  justify-content: space-evenly;
   width: 100%;
   background: #52b788;
+  padding: 10px;
+`;
+
+const StyledFacebook = styled(Facebook)`
+  color: #3b5998;
+`;
+
+const StyledTwitter = styled(Twitter)`
+  color: #00acee;
+`;
+
+const StyledInstagram = styled(Instagram)`
+  color: #c13584;
 `;

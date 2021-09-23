@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import styled from "styled-components";
 import { useRouter } from "next/router";
-import withoutAuth from "@/hocs/withoutAuth";
+import withAuth from "@/hocs/withAuth";
 
 const Homes = () => {
   const router = useRouter();
@@ -183,7 +183,7 @@ const Homes = () => {
   );
 };
 
-export default withoutAuth(Homes);
+export default withAuth(Homes);
 
 const Container = styled.div`
   display: grid;
