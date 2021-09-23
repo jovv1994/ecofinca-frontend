@@ -2,7 +2,6 @@ import React from "react";
 import Link from "next/link";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import { useRouter } from "next/router";
 import Typography from "@mui/material/Typography";
 import { IconButton, Menu, MenuItem } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
@@ -12,8 +11,6 @@ import { useAuth } from "@/contexts/auth";
 export default function TypeSesion() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const router = useRouter();
-  const { role } = router.query;
   const { user } = useAuth();
 
   const handleMenu = (event) => {
@@ -48,7 +45,7 @@ export default function TypeSesion() {
         >
           <AccountCircle />
         </IconButton>
-        <Menu
+        {/* <Menu
           id="menu-appbar"
           anchorEl={anchorEl}
           anchorOrigin={{
@@ -65,7 +62,7 @@ export default function TypeSesion() {
         >
           <MenuItem onClick={handleClose}>Perfil</MenuItem>
           <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
-        </Menu>
+        </Menu> */}
         <Logout />
       </Container>
     );
@@ -87,7 +84,7 @@ export default function TypeSesion() {
       >
         <AccountCircle />
       </IconButton>
-      <Menu
+      {/* <Menu
         id="menu-appbar"
         anchorEl={anchorEl}
         anchorOrigin={{
@@ -104,7 +101,7 @@ export default function TypeSesion() {
       >
         <MenuItem onClick={handleClose}>Perfil</MenuItem>
         <MenuItem onClick={handleClose}>Mi cuenta</MenuItem>
-      </Menu>
+      </Menu> */}
       <Logout />
     </Container>
   );
