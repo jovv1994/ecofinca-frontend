@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import Image from "next/image";
 import Delivery from "@/api/delivery";
 import withAuth from "@/hocs/withAuth";
