@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {styled} from '@mui/material/styles';
 import MuiGrid from '@mui/material/Grid';
 import PropTypes from "prop-types";
@@ -15,6 +15,8 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Delivery from "@/api/delivery";
+import Provincia from "@/api/provincias";
 
 const Grid = styled(MuiGrid)(({theme}) => ({
   width: '100%',
@@ -37,9 +39,9 @@ function Row(props) {
     <React.Fragment>
       <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
         <TableCell align="center">{row.description}</TableCell>
-        <TableCell align="center">{row.amount}</TableCell>
-        <TableCell align="center">{row.nameCenter}</TableCell>
-        <TableCell align="center">{row.state}</TableCell>
+        <TableCell align="center">{row.quantity}</TableCell>
+        <TableCell align="center">{row.delivery_manager}</TableCell>
+        <TableCell style={row.state === "Aceptado" ? { color: "green"} : row.state === "Rechazado" ? {color: "red"}:  {color: "black"}} align="center">{row.state}</TableCell>
       </TableRow>
     </React.Fragment>
   );
@@ -54,15 +56,27 @@ Row.propTypes = {
   }).isRequired,
 };
 
-const rows = [
-  createData("Frozen yoghurt", 159, "Centro principal Quito", "Pendiente"),
-  createData("Frozen yoghurt", 159, "Centro principal Quito", "Pendiente"),
-  createData("Frozen yoghurt", 159, "Centro principal Quito", "Pendiente"),
-  createData("Frozen yoghurt", 159, "Centro principal Quito", "Pendiente"),
-  createData("Frozen yoghurt", 159, "Centro principal Quito", "Pendiente"),
-];
+
 
 export default function FarmHistory() {
+  const [deliveries, setDeliveries] = useState([]);
+
+  const rows = deliveries;
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Delivery.allPost();
+        console.log("response Delivery", response.data);
+        setDeliveries(response.data);
+      } catch (e) {
+        console.log("Error Delivery data", e);
+      }
+    };
+
+    getData();
+  }, []);
+
   return (
     <TableContainer component={Paper}>
       <Typography variant="h3" align="center">

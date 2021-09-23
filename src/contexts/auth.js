@@ -48,6 +48,7 @@ function useAuthProvider() {
       const response = await User.register(data);
       console.log("response", response);
       handleUser(response.data);
+
       return response;
     } catch (error) {
       if (error.response) {
@@ -76,6 +77,9 @@ function useAuthProvider() {
     try {
       const response = await User.login(data);
       handleUser(response.data.user);
+      let idToken = response.data.token;
+      console.log("Token: ",idToken);
+      localStorage.setItem('id_token', idToken)
       return response;
     } catch (error) {
       if (error.response) {
