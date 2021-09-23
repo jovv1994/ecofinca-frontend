@@ -265,7 +265,7 @@ const Home = () => {
           <div className={stylesLandingPage.tens}>
             <h3>
               Ya tienes una cuenta?{"   "}
-              <Link href="/login">
+              <Link href="/sesion/login">
                 <Hiper>Iniciar Sesión</Hiper>
               </Link>
             </h3>
