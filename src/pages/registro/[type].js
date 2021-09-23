@@ -11,14 +11,13 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import { useAuth } from "@/contexts/auth";
 import withoutAuth from "@/hocs/withoutAuth";
-import Routes from "@/constants/Routes";
+import Routes from "@/constants/routes";
 import Image from "next/image";
 import Provincia from "@/api/provincias";
 import Canton from "@/api/cantones";
-import api from "@/api/index";
 
 /*-------------------------Validacion de datos--------------------------*/
 const schema = yup.object().shape({
@@ -132,8 +131,8 @@ const RegisterPage = () => {
       //PRIMER PUNTO A REVISAR, VALIDACION PUEDE DARSE EN HOCS
       {
         type === "finca"
-          ? await router.push(Routes.HOME_FARM)
-          : await router.push(Routes.HOME_ROLE_COLLECTION_CENTER);
+          ? router.push(Routes.HOME_FARM)
+          : router.push(Routes.HOME_ROLE_COLLECTION_CENTER);
       }
     } catch (e) {
       console.log("e", e.response);

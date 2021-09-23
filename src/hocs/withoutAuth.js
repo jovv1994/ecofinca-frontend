@@ -1,5 +1,5 @@
 import withAuthRedirect from "./withAuthRedirect";
-import Routes from "../constants/routes";
+import Routes from "@/constants/routes";
 
 /**
  * Require the user to be unauthenticated in order to render the component.

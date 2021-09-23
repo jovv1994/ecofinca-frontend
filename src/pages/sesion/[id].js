@@ -3,13 +3,13 @@ import Link from "next/link";
 import * as yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/auth";
-import withoutAuth from "../hocs/withoutAuth";
-import RoutesLogin from "@/constants/Routes";
+import withoutAuth from "../../hocs/withoutAuth";
+import RoutesLogin from "@/constants/routes";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import Layout from "@/components/Layout";
+import Layout from "@/components/layout";
 import Image from "next/image";
 
 /*----------------------Validacion de datos---------------------------*/
@@ -34,9 +34,9 @@ const LoginPage = () => {
 
   const [result, setResult] = useState("");
   const [errorsList, setErrorsList] = useState([]);
-  const [userInfo, setUserInfo] = useState(null);
   const { login } = useAuth();
   const router = useRouter();
+  const [roleUser, setRoleUser] = useState("");
 
   const onFinishLog = async (formData) => {
     try {
@@ -46,16 +46,23 @@ const LoginPage = () => {
 
       const response = await login(userData);
       console.log("response", response);
-      setUserInfo(response.data);
+      setResult("User logged in");
 
-      const role = response.data.userResource.role;
+      const roleQuery = response.data.userResource.role;
+      console.log(roleQuery);
 
       reset();
-      {
-        role === "ROLE_FARM"
-          ? await router.push(RoutesLogin.HOME_FARM)
-          : await router.push(RoutesLogin.HOME_ROLE_COLLECTION_CENTER);
-      }
+
+      setRoleUser(roleQuery);
+      // if (roleUser === "ROLE_FARM") {
+      //   router.push("/home/finca");
+      // }
+
+      // if (roleUser === "ROLE_COLLECTION_CENTER") {
+      //   router.push(RoutesLogin.HOME_ROLE_COLLECTION_CENTER);
+      // }
+
+      router.push(RoutesLogin.HOME);
     } catch (e) {
       console.log("e", e.response);
       const { response } = e;
@@ -126,14 +133,6 @@ const LoginPage = () => {
           <Grid>
             <StyledButton type="submit">Iniciar sesión</StyledButton>
             <p>{result}</p>
-            {userInfo && <div></div>}
-            {errorsList.length > 0 && (
-              <ul>
-                {errorsList.map((error) => (
-                  <li key={error}>{error}</li>
-                ))}
-              </ul>
-            )}
 
             <Link href="/" passHref>
               <Hiper style={{ textAlign: "center" }}>

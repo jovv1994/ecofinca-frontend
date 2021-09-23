@@ -14,7 +14,7 @@ export default function RegisterCollectionCenter() {
         <Link href="/registro/acopio">
           <StyledButton>Registrarme como centro de acopio</StyledButton>
         </Link>
-        <Link href="/login">
+        <Link href="/sesion/login">
           <StyledButton>Iniciar Sesión</StyledButton>
         </Link>
       </div>
@@ -27,7 +27,7 @@ export default function RegisterCollectionCenter() {
         <Link href="/registro/finca">
           <StyledButton>Registrarme como dueño de finca</StyledButton>
         </Link>
-        <Link href="/login">
+        <Link href="/sesion/login">
           <StyledButton>Iniciar Sesión</StyledButton>
         </Link>
       </div>
@@ -55,7 +55,7 @@ export default function RegisterCollectionCenter() {
       <Link href="/registro/acopio">
         <StyledButton>Registrarme como centro de acopio</StyledButton>
       </Link>
-      <Link href="/login">
+      <Link href="/sesion/login">
         <StyledButton>Iniciar Sesión</StyledButton>
       </Link>
     </div>
