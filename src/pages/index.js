@@ -4,8 +4,10 @@ import styles from "../styles/Home.module.css";
 import stylesLandingPage from "../styles/landingpage.module.css";
 import Link from "next/link";
 import Layout from "@/components/Layout";
+import withoutAuth from "@/hocs/withoutAuth";
+import styled from "styled-components";
 
-export default function Home() {
+const Home = () => {
   return (
     <Layout>
       <div className={styles.container}>
@@ -31,7 +33,7 @@ export default function Home() {
             <h1>manejo de tus desechos plásticos que</h1>
             <h1>necesitas!</h1>
           </div>
-          //------------------------------------------------------------------------------2
+          <Hr />
           <div className={stylesLandingPage.time}>
             <div className={stylesLandingPage.tree}>
               <div className={stylesLandingPage.forty}>
@@ -70,7 +72,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          //------------------------------------------------------------------------------------3
+          <Hr />
           <div className={stylesLandingPage.time}>
             <div className={stylesLandingPage.four}>
               <div className={stylesLandingPage.once}>
@@ -111,7 +113,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          //----------------------------------------------------------------------------4
+          <Hr />
           <div className={stylesLandingPage.time}>
             <div className={stylesLandingPage.six}>
               <div className={stylesLandingPage.rise}>
@@ -186,82 +188,86 @@ export default function Home() {
               </div>
             </div>
           </div>
-          //--------------------------------------------------------------------------------------------------------------5
+          <Hr />
           <div className={stylesLandingPage.eight}>
-            <div className={stylesLandingPage.seven}>
-              <div className={stylesLandingPage.try}>
-                <div className={stylesLandingPage.forty}>
-                  <h2>Tengo una Finca</h2>
-                </div>
-              </div>
-              <div className={stylesLandingPage.fouy}>
-                <div className={stylesLandingPage.syx}>
-                  <Image
-                    src="/images/track.svg" // Route of the image file
-                    height={105} // Desired size with correct aspect ratio
-                    width={115} // Desired size with correct aspect ratio
-                    alt="oud world"
-                  />
-                </div>
-              </div>
-              <div className={stylesLandingPage.fivy}>
-                <div className={stylesLandingPage.sure}>
-                  <div className={stylesLandingPage.tataa}>
-                    <h5>Quiero ser parte </h5>
-                    <h5>de EcoFinca </h5>
+            <Link href="/registro/finca">
+              <Pointer className={stylesLandingPage.seven}>
+                <div className={stylesLandingPage.try}>
+                  <div className={stylesLandingPage.forty}>
+                    <h2>Tengo una Finca</h2>
                   </div>
-                  <div className={stylesLandingPage.flecha}>
+                </div>
+                <div className={stylesLandingPage.fouy}>
+                  <div className={stylesLandingPage.syx}>
                     <Image
-                      src="/images/users-2.svg" // Route of the image file
-                      height={25} // Desired size with correct aspect ratio
-                      width={35} // Desired size with correct aspect ratio
-                      alt="user-finca"
+                      src="/images/track.svg" // Route of the image file
+                      height={105} // Desired size with correct aspect ratio
+                      width={115} // Desired size with correct aspect ratio
+                      alt="oud world"
                     />
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className={stylesLandingPage.nane}>
-              <div className={stylesLandingPage.try}>
-                <div className={stylesLandingPage.forty}>
-                  <h2>Como centro</h2>
-                  <h2>de acopio</h2>
-                </div>
-              </div>
-              <div className={stylesLandingPage.fouy}>
-                <div className={stylesLandingPage.syx}>
-                  <Image
-                    src="/images/home.svg" // Route of the image file
-                    height={105} // Desired size with correct aspect ratio
-                    width={115} // Desired size with correct aspect ratio
-                    alt="oud world"
-                  />
-                </div>
-              </div>
-              <div className={stylesLandingPage.fivy}>
-                <div className={stylesLandingPage.sures}>
-                  <div className={stylesLandingPage.tataas}>
-                    <h5>Quiero ser parte</h5>
-                    <h5>de EcoFinca </h5>
+                <div className={stylesLandingPage.fivy}>
+                  <div className={stylesLandingPage.sure}>
+                    <div className={stylesLandingPage.tataa}>
+                      <h5>Quiero ser parte </h5>
+                      <h5>de EcoFinca </h5>
+                    </div>
+                    <div className={stylesLandingPage.flecha}>
+                      <Image
+                        src="/images/users-2.svg" // Route of the image file
+                        height={25} // Desired size with correct aspect ratio
+                        width={35} // Desired size with correct aspect ratio
+                        alt="user-finca"
+                      />
+                    </div>
                   </div>
-                  <div className={stylesLandingPage.flechas}>
+                </div>
+              </Pointer>
+            </Link>
+            <Link href="/registro/acopio">
+              <Pointer className={stylesLandingPage.nane}>
+                <div className={stylesLandingPage.try}>
+                  <div className={stylesLandingPage.forty}>
+                    <h2>Tengo un centro</h2>
+                    <h2>de acopio</h2>
+                  </div>
+                </div>
+                <div className={stylesLandingPage.fouy}>
+                  <div className={stylesLandingPage.syx}>
                     <Image
-                      src="/images/users-3.svg" // Route of the image file
-                      height={25} // Desired size with correct aspect ratio
-                      width={35} // Desired size with correct aspect ratio
-                      alt="user-acopio"
+                      src="/images/home.svg" // Route of the image file
+                      height={105} // Desired size with correct aspect ratio
+                      width={115} // Desired size with correct aspect ratio
+                      alt="oud world"
                     />
                   </div>
                 </div>
-              </div>
-            </div>
+                <div className={stylesLandingPage.fivy}>
+                  <div className={stylesLandingPage.sures}>
+                    <div className={stylesLandingPage.tataas}>
+                      <h5>Quiero ser parte</h5>
+                      <h5>de EcoFinca </h5>
+                    </div>
+                    <div className={stylesLandingPage.flechas}>
+                      <Image
+                        src="/images/users-3.svg" // Route of the image file
+                        height={25} // Desired size with correct aspect ratio
+                        width={35} // Desired size with correct aspect ratio
+                        alt="user-acopio"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </Pointer>
+            </Link>
           </div>
-          //----------------------------------------------------------------------------------------------------------------6
+          <Hr />
           <div className={stylesLandingPage.tens}>
             <h3>
-              Ya tienes una cuenta?,{" "}
-              <Link href="/">
-                <a>Home</a>
+              Ya tienes una cuenta?{"   "}
+              <Link href="/login">
+                <Hiper>Iniciar Sesión</Hiper>
               </Link>
             </h3>
           </div>
@@ -269,4 +275,23 @@ export default function Home() {
       </div>
     </Layout>
   );
-}
+};
+export default Home;
+
+const Hr = styled.hr`
+  width: 100%;
+  margin: auto;
+  color: #1b4332;
+`;
+
+const Hiper = styled.a`
+  margin: 5px;
+  color: #1b4332;
+  text-decoration: underline;
+  font-size: 16px;
+  cursor: pointer;
+`;
+
+const Pointer = styled.div`
+  cursor: pointer;
+`;

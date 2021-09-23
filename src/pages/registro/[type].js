@@ -17,7 +17,6 @@ import withoutAuth from "@/hocs/withoutAuth";
 import Routes from "@/constants/Routes";
 import Image from "next/image";
 import Provincia from "@/api/provincias";
-import { getDialogActionsUtilityClass } from "@mui/material";
 import Canton from "@/api/cantones";
 import api from "@/api/index";
 
@@ -157,7 +156,7 @@ const RegisterPage = () => {
       }
     }
   };
-//SEGUNDO => CAMBIAR EL FORMULARIO A UNO MAS GENERICO
+  //SEGUNDO => CAMBIAR EL FORMULARIO A UNO MAS GENERICO
   /*-----------------Renderizado del componente----------------------*/
   return (
     <Layout>

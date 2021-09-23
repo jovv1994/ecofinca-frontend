@@ -14,6 +14,7 @@ import styled from "styled-components";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import Delivery from "@/api/delivery";
+import withAuth from "@/hocs/withAuth";
 
 /*-------------------------Validacion de datos--------------------------*/
 const schema = yup.object().shape({
@@ -31,7 +32,7 @@ const schema = yup.object().shape({
 
 /*-----------------------------------------------------------------------*/
 
-export default function DeliveryPage() {
+const DeliveryPage = () => {
   /*Obtener el valor de la ruta dinamica*/
   const router = useRouter();
   const { type } = router.query;
@@ -264,7 +265,9 @@ export default function DeliveryPage() {
       </Container>
     </Layout>
   );
-}
+};
+
+export default withAuth(DeliveryPage);
 
 const Container = styled.div`
   display: grid;

@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useAuth } from "@/contexts/auth";
 import withoutAuth from "../hocs/withoutAuth";
-import Routes from "@/constants/Routes";
+import RoutesLogin from "@/constants/Routes";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import Layout from "@/components/Layout";
@@ -53,8 +53,8 @@ const LoginPage = () => {
       reset();
       {
         role === "ROLE_FARM"
-          ? router.push(Routes.HOME_FARM)
-          : router.push(Routes.HOME_ROLE_COLLECTION_CENTER);
+          ? await router.push(RoutesLogin.HOME_FARM)
+          : await router.push(RoutesLogin.HOME_ROLE_COLLECTION_CENTER);
       }
     } catch (e) {
       console.log("e", e.response);
@@ -125,7 +125,7 @@ const LoginPage = () => {
 
           <Grid>
             <StyledButton type="submit">Iniciar sesión</StyledButton>
-            {/* <p>{result}</p>
+            <p>{result}</p>
             {userInfo && <div></div>}
             {errorsList.length > 0 && (
               <ul>
@@ -133,7 +133,7 @@ const LoginPage = () => {
                   <li key={error}>{error}</li>
                 ))}
               </ul>
-            )} */}
+            )}
 
             <Link href="/" passHref>
               <Hiper style={{ textAlign: "center" }}>
