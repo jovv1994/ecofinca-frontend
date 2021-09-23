@@ -26,6 +26,9 @@ export default function TypeSesion() {
   if (sesionRole === "ROLE_FARM") {
     return (
       <Container>
+        <Link href="/home/finca">
+          <StyledButton>Ir al home del dueño de finca </StyledButton>
+        </Link>
         <StyledTypography variant="h6">Finca </StyledTypography>
         <StyledTypography variant="h6">
           {user.organization_type}
@@ -70,6 +73,9 @@ export default function TypeSesion() {
 
   return (
     <Container>
+      <Link href="/home/acopio">
+        <StyledButton>Ir al home del centro de acopio </StyledButton>
+      </Link>
       <StyledTypography variant="h6">Centro de acopio </StyledTypography>
       <StyledTypography variant="h6">{user.organization_type}</StyledTypography>
       <StyledTypography variant="h6">Bienvenido </StyledTypography>
@@ -109,7 +115,7 @@ export default function TypeSesion() {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
   justify-content: space-evenly;
   align-content: center;
   width: 100%;
