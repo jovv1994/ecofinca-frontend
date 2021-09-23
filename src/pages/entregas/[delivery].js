@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -15,6 +15,9 @@ import Layout from "@/components/Layout";
 import Image from "next/image";
 import Delivery from "@/api/delivery";
 import withAuth from "@/hocs/withAuth";
+import Provincia from "@/api/provincias";
+import Canton from "@/api/cantones";
+import User from "@/api/user";
 
 /*-------------------------Validacion de datos--------------------------*/
 const schema = yup.object().shape({
@@ -46,6 +49,57 @@ const DeliveryPage = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const [provincias, setProvincias] = useState([]);
+  const [provinciaId, setProvinciaId] = useState("");
+  const [cantones, setCantones] = useState([]);
+  const [cantonId, setCantonId] = useState("");
+  const [parroquias, setParroquias] = useState([]);
+  const [collectionCenters, setCollectionCenters] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Provincia.all();
+        const anotherResponse = await User.getCollectionCenters();
+        console.log("response", response.data);
+        setProvincias(response.data);
+        setCollectionCenters(anotherResponse.data);
+      } catch (e) {
+        console.log("e", e);
+      }
+    };
+
+    getData();
+  }, []);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Provincia.cantones(provinciaId);
+        console.log("CANTONES DE PROVINCIA " + provinciaId, response.data);
+        setCantones(response.data);
+      } catch (e) {
+        console.log("E", e);
+      }
+    };
+
+    getData();
+  }, [provinciaId]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const response = await Canton.parroquias(cantonId);
+        console.log("PARROQUIAS DE CANTON" + cantonId, response.data);
+        setParroquias(response.data);
+      } catch (e) {
+        console.log("e", e);
+      }
+    };
+
+    getData();
+  }, [cantonId]);
 
   const onSubmit = async (values) => {
     console.log("values", values);
@@ -88,7 +142,7 @@ const DeliveryPage = () => {
               render={({ field }) => (
                 <StyledTextField
                   {...field}
-                  label="Descripción de las botellas"
+                  label="Descripción de la entrega"
                   variant="outlined"
                   size="small"
                 />
@@ -113,12 +167,10 @@ const DeliveryPage = () => {
             />
             <p>{errors.quantity?.message}</p>
           </div>
-
           <div>
             <input type="file" id="image" name="image" {...register("image")} />
             <p>{errors.title?.message}</p>
           </div>
-
           <div>
             <Controller
               name="provincia"
@@ -128,31 +180,24 @@ const DeliveryPage = () => {
                 <StyledTextField
                   {...rest}
                   select
-                  label="Ingrese la provincia"
+                  label="Selecciona tu Provincia"
                   inputRef={ref}
-                  error={!!errors.gender}
-                  helperText={errors.gender?.message}
                 >
-                  {[
-                    {
-                      label: "Pichincha",
-                      value: 1,
-                    },
-                    {
-                      label: "Guayas",
-                      value: 2,
-                    },
-                  ].map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
+                  {provincias.length > 0 &&
+                    provincias.map((option) => (
+                      <MenuItem
+                        key={option.id}
+                        value={option.name}
+                        onClick={() => setProvinciaId(option.id)}
+                      >
+                        {option.name}
+                      </MenuItem>
+                    ))}
                 </StyledTextField>
               )}
             />
             <p>{errors.provincia?.message}</p>
           </div>
-
           <div>
             <Controller
               name="canton"
@@ -162,31 +207,24 @@ const DeliveryPage = () => {
                 <StyledTextField
                   {...rest}
                   select
-                  label="Ingrese el cantón"
+                  label="Selecciona tu Cantón"
                   inputRef={ref}
-                  error={!!errors.gender}
-                  helperText={errors.gender?.message}
                 >
-                  {[
-                    {
-                      label: "Quito",
-                      value: 1,
-                    },
-                    {
-                      label: "El Oro",
-                      value: 2,
-                    },
-                  ].map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
+                  {cantones.length > 0 &&
+                    cantones.map((option) => (
+                      <MenuItem
+                        key={option.id}
+                        value={option.name}
+                        onClick={() => setCantonId(option.id)}
+                      >
+                        {option.name}
+                      </MenuItem>
+                    ))}
                 </StyledTextField>
               )}
             />
             <p>{errors.canton?.message}</p>
           </div>
-
           <div>
             <Controller
               name="parroquia"
@@ -196,31 +234,24 @@ const DeliveryPage = () => {
                 <StyledTextField
                   {...rest}
                   select
-                  label="Ingrese la parroquía"
+                  label="Selecciona tu Parroquia"
                   inputRef={ref}
-                  error={!!errors.gender}
-                  helperText={errors.gender?.message}
                 >
-                  {[
-                    {
-                      label: "Quito",
-                      value: 1,
-                    },
-                    {
-                      label: "El Oro",
-                      value: 2,
-                    },
-                  ].map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
+                  {parroquias.length > 0 &&
+                    parroquias.map((option) => (
+                      <MenuItem
+                        key={option.id}
+                        value={option.name}
+                        //onClick={() => setCantonId(option.id)}
+                      >
+                        {option.name}
+                      </MenuItem>
+                    ))}
                 </StyledTextField>
               )}
             />
             <p>{errors.parroquia?.message}</p>
           </div>
-
           <div>
             <Controller
               name="for_user_id"
@@ -230,31 +261,24 @@ const DeliveryPage = () => {
                 <StyledTextField
                   {...rest}
                   select
-                  label="Elija el centro de acopio"
+                  label="Elige un centro de acopio"
                   inputRef={ref}
-                  error={!!errors.gender}
-                  helperText={errors.gender?.message}
                 >
-                  {[
-                    {
-                      label: "Acopio ABC",
-                      value: 1,
-                    },
-                    {
-                      label: "Acopio XYZ",
-                      value: 2,
-                    },
-                  ].map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
+                  {collectionCenters.length > 0 &&
+                    collectionCenters.map((option) => (
+                      <MenuItem
+                        key={option.id}
+                        value={option.id}
+                        //onClick={() => setCantonId(option.id)}
+                      >
+                        {option.organization_type}
+                      </MenuItem>
+                    ))}
                 </StyledTextField>
               )}
             />
             <p>{errors.for_user_id?.message}</p>
           </div>
-
           <Grid>
             <StyledButton type="submit">Publicar Entrega</StyledButton>
             <Link href="/home/finca">

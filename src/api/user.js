@@ -26,6 +26,9 @@ const User = {
   getAuthenticatedUser: () => {
     return api.get("/user");
   },
+  getCollectionCenters: () => {
+    return api.get("/users");
+  },
 };
 
 export default User;
