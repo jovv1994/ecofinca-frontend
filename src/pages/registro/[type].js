@@ -178,7 +178,7 @@ const RegisterPage = () => {
               src="/images/bxs-building-house.svg" // Route of the image file
               height={50} // Desired size with correct aspect ratio
               width={50} // Desired size with correct aspect ratio
-              alt="Finca"
+              alt="Centro de Acopio"
             />
           </Div>
         )}
@@ -188,7 +188,7 @@ const RegisterPage = () => {
             <Controller
               name="name"
               control={control}
-              defaultValue="nombre 1"
+              defaultValue=""
               render={({ field }) => (
                 <StyledTextField
                   {...field}
@@ -204,7 +204,7 @@ const RegisterPage = () => {
             <Controller
               name="lastname"
               control={control}
-              defaultValue="apellido 1"
+              defaultValue=""
               render={({ field }) => (
                 <StyledTextField
                   {...field}
@@ -220,7 +220,7 @@ const RegisterPage = () => {
             <Controller
               name="email"
               control={control}
-              defaultValue="preuba1@preuba1.com"
+              defaultValue=""
               render={({ field }) => (
                 <StyledTextField
                   {...field}
@@ -237,7 +237,7 @@ const RegisterPage = () => {
             <Controller
               name="password"
               control={control}
-              defaultValue="12345678"
+              defaultValue=""
               render={({ field }) => (
                 <StyledTextField
                   {...field}
@@ -271,7 +271,7 @@ const RegisterPage = () => {
             <Controller
               name="address"
               control={control}
-              defaultValue="direccion 1"
+              defaultValue=""
               render={({ field }) => (
                 <StyledTextField
                   {...field}
@@ -284,269 +284,131 @@ const RegisterPage = () => {
             <p>{errors.address?.message}</p>
           </div>
 
-          {type === "finca" ? (
+          <div>
             <div>
-              <div>
-                <Controller
-                  name="organization_type"
-                  control={control}
-                  defaultValue="finca 1"
-                  render={({ field }) => (
-                    <StyledTextField
-                      {...field}
-                      label="Nombre de la finca"
-                      variant="outlined"
-                      size="small"
-                    />
-                  )}
-                />
-                <p>{errors.organization_type?.message}</p>
-              </div>
-              <div>
-                <Controller
-                  name="description"
-                  control={control}
-                  defaultValue="description 1"
-                  render={({ field }) => (
-                    <StyledTextField
-                      {...field}
-                      multiline
-                      maxRows={6}
-                      label="Descripción corta de su finca"
-                      variant="outlined"
-                      size="small"
-                    />
-                  )}
-                />
-                <p>{errors.description?.message}</p>
-              </div>
-
-              <div>
-                <Controller
-                  name="provincia_id"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { ref, ...rest } }) => (
-                    <StyledTextField
-                      {...rest}
-                      select
-                      label="Seleccione su Provincia"
-                      inputRef={ref}
-                    >
-                      {provincias.length > 0 &&
-                        provincias.map((option) => (
-                          <MenuItem
-                            key={option.id}
-                            value={option.id}
-                            onClick={() => setProvinciaId(option.id)}
-                          >
-                            {option.name}
-                          </MenuItem>
-                        ))}
-                    </StyledTextField>
-                  )}
-                />
-                <p>{errors.description?.message}</p>
-              </div>
-              <div>
-                <Controller
-                  name="canton_id"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { ref, ...rest } }) => (
-                    <StyledTextField
-                      {...rest}
-                      select
-                      label="Seleccione su Cantón"
-                      inputRef={ref}
-                    >
-                      {cantones.length > 0 &&
-                        cantones.map((option) => (
-                          <MenuItem
-                            key={option.id}
-                            value={option.id}
-                            // onClick={() => handleShowProvinciaId(option.id)}
-                            onClick={() => setCantonId(option.id)}
-                          >
-                            {option.name}
-                          </MenuItem>
-                        ))}
-                    </StyledTextField>
-                  )}
-                />
-                <p>{errors.short_bio?.message}</p>
-              </div>
-
-              <div>
-                <Controller
-                  name="parroquia_id"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { ref, ...rest } }) => (
-                    <StyledTextField
-                      {...rest}
-                      select
-                      label="Seleccione su Parroquia"
-                      inputRef={ref}
-                    >
-                      {parroquias.length > 0 &&
-                        parroquias.map((option) => (
-                          <MenuItem
-                            key={option.id}
-                            value={option.id}
-                            // onClick={() => handleShowProvinciaId(option.id)}
-                            //onClick={() => setCantonId(option.id)}
-                          >
-                            {option.name}
-                          </MenuItem>
-                        ))}
-                    </StyledTextField>
-                  )}
-                />
-                <p>{errors.short_bio?.message}</p>
-              </div>
+              <Controller
+                name="organization_type"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <StyledTextField
+                    {...field}
+                    label={
+                      type === "finca"
+                        ? "Nombre de la finca"
+                        : "Nombre del centro de acopio"
+                    }
+                    variant="outlined"
+                    size="small"
+                  />
+                )}
+              />
+              <p>{errors.organization_type?.message}</p>
             </div>
-          ) : (
             <div>
-              <div>
-                <Controller
-                  name="organization_type"
-                  control={control}
-                  defaultValue="finca 1"
-                  render={({ field }) => (
-                    <StyledTextField
-                      {...field}
-                      label="Nombre del centro de acopio"
-                      variant="outlined"
-                      size="small"
-                    />
-                  )}
-                />
-                <p>{errors.organization_type?.message}</p>
-              </div>
-              <div>
-                <Controller
-                  name="description"
-                  control={control}
-                  defaultValue="description 1"
-                  render={({ field }) => (
-                    <StyledTextField
-                      {...field}
-                      multiline
-                      maxRows={6}
-                      label="Descripción corta de su centro de acopio"
-                      variant="outlined"
-                      size="small"
-                    />
-                  )}
-                />
-                <p>{errors.description?.message}</p>
-              </div>
-
-              <div>
-                <Controller
-                  name="provincia_id"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { ref, ...rest } }) => (
-                    <StyledTextField
-                      {...rest}
-                      select
-                      label="Ingrese la provincia donde se ubica el centro de acopio"
-                      inputRef={ref}
-                      error={!!errors.gender}
-                      helperText={errors.gender?.message}
-                    >
-                      {[
-                        {
-                          label: "Pichincha",
-                          value: 1,
-                        },
-                        {
-                          label: "Guayas",
-                          value: 2,
-                        },
-                      ].map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </StyledTextField>
-                  )}
-                />
-                <p>{errors.short_bio?.message}</p>
-              </div>
-
-              <div>
-                <Controller
-                  name="canton_id"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { ref, ...rest } }) => (
-                    <StyledTextField
-                      {...rest}
-                      select
-                      label="Ingrese el cantón donde se ubica el centro de acopio"
-                      inputRef={ref}
-                      error={!!errors.gender}
-                      helperText={errors.gender?.message}
-                    >
-                      {[
-                        {
-                          label: "Quito",
-                          value: 1,
-                        },
-                        {
-                          label: "El Oro",
-                          value: 2,
-                        },
-                      ].map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </StyledTextField>
-                  )}
-                />
-                <p>{errors.short_bio?.message}</p>
-              </div>
-
-              <div>
-                <Controller
-                  name="parroquia_id"
-                  control={control}
-                  defaultValue=""
-                  render={({ field: { ref, ...rest } }) => (
-                    <StyledTextField
-                      {...rest}
-                      select
-                      label="Ingrese la parroquía donde se ubica el centro de acopio"
-                      inputRef={ref}
-                      error={!!errors.gender}
-                      helperText={errors.gender?.message}
-                    >
-                      {[
-                        {
-                          label: "Quito",
-                          value: 1,
-                        },
-                        {
-                          label: "El Oro",
-                          value: 2,
-                        },
-                      ].map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </StyledTextField>
-                  )}
-                />
-                <p>{errors.short_bio?.message}</p>
-              </div>
+              <Controller
+                name="description"
+                control={control}
+                defaultValue=""
+                render={({ field }) => (
+                  <StyledTextField
+                    {...field}
+                    multiline
+                    maxRows={6}
+                    label={
+                      type === "finca"
+                        ? "Describe brevemente a tu finca"
+                        : "Describe brevemente a tu organización"
+                    }
+                    variant="outlined"
+                    size="small"
+                  />
+                )}
+              />
+              <p>{errors.description?.message}</p>
             </div>
-          )}
-
+            <div>
+              <Controller
+                name="provincia_id"
+                control={control}
+                defaultValue=""
+                render={({ field: { ref, ...rest } }) => (
+                  <StyledTextField
+                    {...rest}
+                    select
+                    label="Selecciona tu Provincia"
+                    inputRef={ref}
+                  >
+                    {provincias.length > 0 &&
+                      provincias.map((option) => (
+                        <MenuItem
+                          key={option.id}
+                          value={option.id}
+                          onClick={() => setProvinciaId(option.id)}
+                        >
+                          {option.name}
+                        </MenuItem>
+                      ))}
+                  </StyledTextField>
+                )}
+              />
+              <p>{errors.provincia?.message}</p>
+            </div>
+            <div>
+              <Controller
+                name="canton_id"
+                control={control}
+                defaultValue=""
+                render={({ field: { ref, ...rest } }) => (
+                  <StyledTextField
+                    {...rest}
+                    select
+                    label="Selecciona tu Cantón"
+                    inputRef={ref}
+                  >
+                    {cantones.length > 0 &&
+                      cantones.map((option) => (
+                        <MenuItem
+                          key={option.id}
+                          value={option.id}
+                          onClick={() => setCantonId(option.id)}
+                        >
+                          {option.name}
+                        </MenuItem>
+                      ))}
+                  </StyledTextField>
+                )}
+              />
+              <p>{errors.canton?.message}</p>
+            </div>
+            <div>
+              <Controller
+                name="parroquia_id"
+                control={control}
+                defaultValue=""
+                render={({ field: { ref, ...rest } }) => (
+                  <StyledTextField
+                    {...rest}
+                    select
+                    label="Selecciona tu Parroquia"
+                    inputRef={ref}
+                  >
+                    {parroquias.length > 0 &&
+                      parroquias.map((option) => (
+                        <MenuItem
+                          key={option.id}
+                          value={option.id}
+                          //onClick={() => setCantonId(option.id)}
+                        >
+                          {option.name}
+                        </MenuItem>
+                      ))}
+                  </StyledTextField>
+                )}
+              />
+              <p>{errors.parroquia?.message}</p>
+            </div>
+          </div>
           <p>{result}</p>
           {userInfo && (
             <div>
@@ -562,10 +424,8 @@ const RegisterPage = () => {
               ))}
             </ul>
           )}
-
           <Grid>
             <StyledButton type="submit">Registrarme</StyledButton>
-
             <div>
               <p>
                 ¿Ya tienes una cuenta?{" "}
